@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2017",                              
+    "module": "commonjs",                           
+    // "lib": [],                                   
+    "allowJs": true,                             
+    "outDir": "./build",                              
+    "rootDir": "./src",                             
+    "removeComments": true,                      
+    "strict": true,                                 
+    "moduleResolution": "node",                  
+    "baseUrl": "./",                             
+    "paths": {
+      "@infra/*":["./src/infra/*"],
+      "@app/*": ["./src/app/*"],
+      "@domain/*":["./src/domain/*"]
+    },                                 
+    "experimentalDecorators": true,              
+    "emitDecoratorMetadata": true,               
+    "forceConsistentCasingInFileNames": true        
+  }
+}
