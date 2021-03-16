@@ -1,6 +1,6 @@
 import { Password } from '@domain/valueObjects/Password';
 import { Column, Entity, PrimaryColumn } from 'typeorm';
-import {uuid} from 'uuidv4';
+import { uuid } from 'uuidv4';
 
 @Entity({
     name: "tb_user",
@@ -25,7 +25,7 @@ export class User {
     public loginName: string;
 
     @Column({
-        name:"user_password",
+        name: "user_password",
         type: "varchar",
         length: 36,
         nullable: false
@@ -67,37 +67,37 @@ export class User {
         name: "user_created_at",
         type: "date"
     })
-    public createdAt: Date;
+    public createdAt!: Date;
 
     @Column({
         name: "user_last_update_at",
         type: "date"
     })
-    public lastUpdatedAt: Date;
+    public lastUpdatedAt!: Date;
 
     @Column({
         name: "user_last_auth",
-        type:"date"
+        type: "date"
     })
-    public lastAuth: Date;
+    public lastAuth!: Date;
 
     @Column({
         name: "user_last_reset_password_at",
-        type:"date"
+        type: "date"
     })
-    public lastResetPasswordAt: Date;
+    public lastResetPasswordAt!: Date;
 
     @Column({
         name: "user_last_mfa_code_set_at",
-        type:"date"
+        type: "date"
     })
-    public lastMfaCodeSetAt: Date;
+    public lastMfaCodeSetAt!: Date;
 
     @Column({
         name: "user_last_date_auth_changed_at",
-        type:"date"
+        type: "date"
     })
-    public lastDataAuthChangedAt: Date;
+    public lastDataAuthChangedAt!: Date;
 
     constructor(props: Omit<User, 'id'>, id?: string) {
 
@@ -109,7 +109,7 @@ export class User {
         this.password = new Password(props.password).retPwd;
         this.createdAt = new Date();
 
-        if(!id) {
+        if (!id) {
             this.id = uuid();
         } else {
             this.id = id;
